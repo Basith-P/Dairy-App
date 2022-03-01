@@ -23,7 +23,7 @@ class Diary extends StatelessWidget {
       theme: CustomTheme.darkTheme,
       debugShowCheckedModeBanner: false,
       onGenerateRoute: route.controller,
-      initialRoute: route.homePage,
+      initialRoute: route.authPage,
     );
   }
 }

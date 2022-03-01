@@ -17,5 +17,15 @@ class CustomTheme {
                 fontSize: 16,
               ),
             ),
+        textButtonTheme: TextButtonThemeData(
+          style: TextButton.styleFrom(
+            primary: primaryTextColor,
+            backgroundColor: primaryColor,
+            padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(8),
+            ),
+          ),
+        ),
       );
 }
