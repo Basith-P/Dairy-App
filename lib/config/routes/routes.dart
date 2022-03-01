@@ -9,7 +9,6 @@ Route<dynamic> controller(RouteSettings settings) {
     case homePage:
       return MaterialPageRoute(builder: (_) => HomePage());
     default:
-      // return MaterialPageRoute(builder: (_) => HomePage());
       throw ('This route does not exists!');
   }
 }
