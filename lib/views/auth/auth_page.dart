@@ -1,6 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:th_diary/config/themes/colors.dart';
 
-class AuthPage extends StatelessWidget {
+class AuthPage extends StatefulWidget {
+  @override
+  State<AuthPage> createState() => _AuthPageState();
+}
+
+class _AuthPageState extends State<AuthPage> {
+  bool _wantLogin = false;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -12,19 +20,37 @@ class AuthPage extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.stretch,
               mainAxisSize: MainAxisSize.min,
               children: [
+                if (!_wantLogin)
+                  TextFormField(
+                    decoration: const InputDecoration(labelText: 'Name'),
+                  ),
+                if (!_wantLogin) const SizedBox(height: 16),
                 TextFormField(
-                  decoration: InputDecoration(labelText: 'Email'),
+                  decoration: const InputDecoration(labelText: 'Email'),
                 ),
                 const SizedBox(height: 16),
                 TextFormField(
-                  decoration: InputDecoration(labelText: 'Password'),
+                  decoration: const InputDecoration(labelText: 'Password'),
                 ),
                 const SizedBox(height: 32),
                 TextButton(
                   onPressed: () {},
                   child: Text(
-                    'Login',
-                    style: TextStyle(fontSize: 20),
+                    _wantLogin ? 'Login' : 'Create account',
+                    // style: const TextStyle(fontSize: 18),
+                  ),
+                ),
+                const SizedBox(height: 24),
+                GestureDetector(
+                  onTap: () => setState(() {
+                    _wantLogin = !_wantLogin;
+                  }),
+                  child: Text(
+                    _wantLogin ? 'Create an account' : 'Have an account? Login',
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                      color: secondaryTextColor,
+                    ),
                   ),
                 ),
               ],
