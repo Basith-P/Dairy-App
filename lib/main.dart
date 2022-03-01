@@ -21,6 +21,7 @@ class Diary extends StatelessWidget {
     return MaterialApp(
       title: 'Diary',
       theme: CustomTheme.darkTheme,
+      debugShowCheckedModeBanner: false,
       onGenerateRoute: route.controller,
       initialRoute: route.homePage,
     );
