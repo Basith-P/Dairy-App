@@ -11,6 +11,10 @@ class CustomTheme {
   static ThemeData get darkTheme => ThemeData.dark().copyWith(
         primaryColor: primaryColor,
         scaffoldBackgroundColor: primaryColorDark,
+        appBarTheme: AppBarTheme().copyWith(
+          elevation: 0,
+          backgroundColor: Colors.transparent,
+        ),
         textTheme: ThemeData.dark().textTheme.copyWith(
               bodyText2: const TextStyle(
                 color: primaryTextColor,
@@ -27,5 +31,6 @@ class CustomTheme {
             ),
           ),
         ),
+        colorScheme: ColorScheme.fromSwatch().copyWith(secondary: primaryColor),
       );
 }

@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:th_diary/config/themes/colors.dart';
 
 class AuthPage extends StatefulWidget {
+  const AuthPage({Key? key}) : super(key: key);
+
   @override
   State<AuthPage> createState() => _AuthPageState();
 }
@@ -48,7 +50,7 @@ class _AuthPageState extends State<AuthPage> {
                   child: Text(
                     _wantLogin ? 'Create an account' : 'Have an account? Login',
                     textAlign: TextAlign.center,
-                    style: TextStyle(
+                    style: const TextStyle(
                       color: secondaryTextColor,
                     ),
                   ),
