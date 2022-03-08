@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:intl/intl.dart';
 
 import '../../providers/diary_provider.dart';
 
@@ -18,7 +19,7 @@ class HomePage extends StatelessWidget {
         padding: const EdgeInsets.fromLTRB(16, 16, 16, 0),
         itemCount: diaries.length,
         itemBuilder: (context, i) => ListTile(
-          title: Text(diaries[i].date.toString()),
+          title: Text(DateFormat('dd.MM.yyyy').format(diaries[i].date)),
           subtitle: Text(
             diaries[i].content,
             maxLines: 2,
