@@ -9,7 +9,7 @@ const String authPage = 'auth';
 Route<dynamic> controller(RouteSettings settings) {
   switch (settings.name) {
     case homePage:
-      return MaterialPageRoute(builder: (_) => const HomePage());
+      return MaterialPageRoute(builder: (_) => HomePage());
     case authPage:
       return MaterialPageRoute(builder: (_) => AuthPage());
     default:

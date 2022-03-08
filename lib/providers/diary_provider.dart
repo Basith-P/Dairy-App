@@ -1,26 +1,26 @@
 import 'package:flutter/cupertino.dart';
 
 class DiaryModel {
-  final String id;
+  final String id = DateTime.now().toString().trim();
   final DateTime date;
-  final String text;
+  final String content;
 
-  DiaryModel({required this.id, required this.date, required this.text});
+  DiaryModel({required this.date, required this.content});
 }
 
-class Diary with ChangeNotifier {
-  final List<DiaryModel> _diary = [
+class DiaryProvider with ChangeNotifier {
+  final List<DiaryModel> _diaries = [
     DiaryModel(
-      id: '1',
       date: DateTime.now(),
-      text: '첫 번째 일기입니다.',
+      content:
+          'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
     ),
     DiaryModel(
-      id: '2',
       date: DateTime.now(),
-      text: '두 번째 일기입니다.',
+      content:
+          'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
     ),
   ];
 
-  List<DiaryModel> get diary => [..._diary];
+  List<DiaryModel> get allDiaries => [..._diaries];
 }

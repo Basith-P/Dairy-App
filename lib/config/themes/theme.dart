@@ -11,7 +11,7 @@ class CustomTheme {
   static ThemeData get darkTheme => ThemeData.dark().copyWith(
         primaryColor: primaryColor,
         scaffoldBackgroundColor: primaryColorDark,
-        appBarTheme: AppBarTheme().copyWith(
+        appBarTheme: const AppBarTheme().copyWith(
           elevation: 0,
           backgroundColor: Colors.transparent,
         ),
