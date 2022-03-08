@@ -11,7 +11,7 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final List<DiaryModel> diaries = context.read<DiaryProvider>().allDiaries;
+    final List<DiaryModel> diaries = context.watch<DiaryProvider>().allDiaries;
     return Scaffold(
       appBar: AppBar(
         title: const Text('Your entries'),

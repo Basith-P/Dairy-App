@@ -1,10 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
-import 'package:th_diary/config/themes/colors.dart';
+import 'package:provider/provider.dart';
+
+import '../../config/themes/colors.dart';
+import '../../providers/diary_provider.dart';
 
 class NewDiaryPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    String content = "";
+
     final dateTime = DateTime.now();
     return Scaffold(
       appBar: AppBar(
@@ -39,12 +44,21 @@ class NewDiaryPage extends StatelessWidget {
                     borderSide: BorderSide.none,
                   ),
                 ),
+                onChanged: (value) {
+                  content = value;
+                },
               ),
             ),
             const SizedBox(height: 16.0),
             TextButton(
               child: const Text('Save'),
-              onPressed: () {},
+              onPressed: () {
+                if (content != "") {
+                  final newDiary = DiaryModel(date: dateTime, content: content);
+                  context.read<DiaryProvider>().addDiary(newDiary);
+                  Navigator.pop(context);
+                }
+              },
               style: const ButtonStyle().copyWith(
                 backgroundColor: MaterialStateProperty.all<Color>(secondaryColor),
               ),

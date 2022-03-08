@@ -23,4 +23,9 @@ class DiaryProvider with ChangeNotifier {
   ];
 
   List<DiaryModel> get allDiaries => [..._diaries];
+
+  void addDiary(DiaryModel diary) {
+    _diaries.add(diary);
+    notifyListeners();
+  }
 }
