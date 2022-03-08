@@ -3,6 +3,7 @@ import 'package:provider/provider.dart';
 import 'package:intl/intl.dart';
 
 import '../../providers/diary_provider.dart';
+import '../../config/routes/routes.dart' as route;
 
 class HomePage extends StatelessWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -32,7 +33,7 @@ class HomePage extends StatelessWidget {
         separatorBuilder: (BuildContext context, int index) => const Divider(height: 5),
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: () {},
+        onPressed: () => Navigator.pushNamed(context, route.newDiaryPage),
         child: const Icon(Icons.add_rounded),
       ),
     );
