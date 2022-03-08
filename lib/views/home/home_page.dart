@@ -34,6 +34,15 @@ class HomePage extends StatelessWidget {
           onTap: () {
             Navigator.pushNamed(context, '/entry', arguments: i);
           },
+          trailing: IconButton(
+            icon: Icon(
+              Icons.delete_outline_rounded,
+              color: primaryTextColor.withOpacity(.5),
+            ),
+            onPressed: () {
+              context.read<DiaryProvider>().deleteDiary(i);
+            },
+          ),
         ),
         separatorBuilder: (context, i) => const SizedBox(height: 8),
       ),

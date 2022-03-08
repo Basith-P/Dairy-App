@@ -28,4 +28,9 @@ class DiaryProvider with ChangeNotifier {
     _diaries.add(diary);
     notifyListeners();
   }
+
+  void deleteDiary(int i) {
+    _diaries.removeAt(i);
+    notifyListeners();
+  }
 }
