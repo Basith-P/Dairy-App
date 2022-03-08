@@ -15,6 +15,7 @@ class HomePage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Your entries'),
+        centerTitle: true,
       ),
       body: ListView.separated(
         physics: const BouncingScrollPhysics(),
@@ -32,7 +33,7 @@ class HomePage extends StatelessWidget {
             overflow: TextOverflow.ellipsis,
           ),
           onTap: () {
-            Navigator.pushNamed(context, '/entry', arguments: i);
+            Navigator.pushNamed(context, route.singleDiaryPage, arguments: i);
           },
           trailing: IconButton(
             icon: Icon(
