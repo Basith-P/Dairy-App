@@ -21,4 +21,6 @@ class Diary with ChangeNotifier {
       text: '두 번째 일기입니다.',
     ),
   ];
+
+  List<DiaryModel> get diary => [..._diary];
 }
