@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:intl/intl.dart';
+import 'package:th_diary/config/themes/colors.dart';
 
 import '../../providers/diary_provider.dart';
 import '../../config/routes/routes.dart' as route;
@@ -35,6 +36,7 @@ class HomePage extends StatelessWidget {
       floatingActionButton: FloatingActionButton(
         onPressed: () => Navigator.pushNamed(context, route.newDiaryPage),
         child: const Icon(Icons.add_rounded),
+        backgroundColor: secondaryColor,
       ),
     );
   }
