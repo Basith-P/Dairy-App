@@ -32,5 +32,10 @@ class CustomTheme {
           ),
         ),
         colorScheme: ColorScheme.fromSwatch().copyWith(secondary: primaryColor),
+        snackBarTheme: const SnackBarThemeData().copyWith(
+          behavior: SnackBarBehavior.floating,
+          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+          backgroundColor: Colors.grey[900],
+        ),
       );
 }

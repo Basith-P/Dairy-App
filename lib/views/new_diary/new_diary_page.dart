@@ -57,6 +57,12 @@ class NewDiaryPage extends StatelessWidget {
                   final newDiary = DiaryModel(date: dateTime, content: content);
                   context.read<DiaryProvider>().addDiary(newDiary);
                   Navigator.pop(context);
+                  ScaffoldMessenger.of(context).hideCurrentSnackBar();
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    const SnackBar(
+                      content: Text('Diary added'),
+                    ),
+                  );
                 }
               },
               style: const ButtonStyle().copyWith(
