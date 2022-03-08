@@ -21,6 +21,10 @@ class HomePage extends StatelessWidget {
         padding: const EdgeInsets.fromLTRB(16, 16, 16, 0),
         itemCount: diaries.length,
         itemBuilder: (context, i) => ListTile(
+          tileColor: Colors.white.withOpacity(.1),
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(12),
+          ),
           title: Text(DateFormat('dd.MM.yyyy').format(diaries[i].date)),
           subtitle: Text(
             diaries[i].content,
@@ -31,7 +35,7 @@ class HomePage extends StatelessWidget {
             Navigator.pushNamed(context, '/entry', arguments: i);
           },
         ),
-        separatorBuilder: (BuildContext context, int index) => const Divider(height: 5),
+        separatorBuilder: (context, i) => const SizedBox(height: 8),
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () => Navigator.pushNamed(context, route.newDiaryPage),
