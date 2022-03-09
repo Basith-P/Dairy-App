@@ -5,6 +5,7 @@ import 'package:provider/provider.dart';
 import 'config/themes/theme.dart';
 import 'config/routes/routes.dart' as route;
 import 'providers/diary_provider.dart';
+import 'auth/auth_provider.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
@@ -16,6 +17,7 @@ void main() {
     MultiProvider(
       providers: [
         ChangeNotifierProvider(create: (_) => DiaryProvider()),
+        ChangeNotifierProvider(create: (_) => AuthProvider())
       ],
       child: const Diary(),
     ),
@@ -32,7 +34,7 @@ class Diary extends StatelessWidget {
       theme: CustomTheme.darkTheme,
       debugShowCheckedModeBanner: false,
       onGenerateRoute: route.controller,
-      initialRoute: route.homePage,
+      initialRoute: route.authPage,
     );
   }
 }

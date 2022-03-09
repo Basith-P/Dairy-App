@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+
+import '../config/routes/routes.dart' as route;
+import 'package:th_diary/auth/auth_provider.dart';
 import 'package:th_diary/config/themes/colors.dart';
 
 class AuthPage extends StatefulWidget {
@@ -9,7 +13,10 @@ class AuthPage extends StatefulWidget {
 }
 
 class _AuthPageState extends State<AuthPage> {
-  bool _wantLogin = false;
+  bool _wantLogin = true;
+  late String name;
+  late String email;
+  late String password;
 
   @override
   Widget build(BuildContext context) {
@@ -25,18 +32,47 @@ class _AuthPageState extends State<AuthPage> {
                 if (!_wantLogin)
                   TextFormField(
                     decoration: const InputDecoration(labelText: 'Name'),
+                    onChanged: (value) {
+                      name = value;
+                    },
                   ),
                 if (!_wantLogin) const SizedBox(height: 16),
                 TextFormField(
                   decoration: const InputDecoration(labelText: 'Email'),
+                  keyboardType: TextInputType.emailAddress,
+                  onChanged: (value) {
+                    email = value;
+                  },
                 ),
                 const SizedBox(height: 16),
                 TextFormField(
+                  cursorRadius: const Radius.circular(2),
                   decoration: const InputDecoration(labelText: 'Password'),
+                  obscureText: true,
+                  onChanged: (value) {
+                    password = value;
+                  },
                 ),
                 const SizedBox(height: 32),
                 TextButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    try {
+                      if (_wantLogin) {
+                        context.read<AuthProvider>().login(email, password);
+                      } else {
+                        context.read<AuthProvider>().signup(name, email, password);
+                      }
+                      Navigator.pushReplacementNamed(context, route.homePage);
+                    } catch (e) {
+                      print(e);
+                      ScaffoldMessenger.of(context).hideCurrentSnackBar();
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        const SnackBar(
+                          content: Text("Please check your email and/or password!"),
+                        ),
+                      );
+                    }
+                  },
                   child: Text(
                     _wantLogin ? 'Login' : 'Create account',
                     // style: const TextStyle(fontSize: 18),

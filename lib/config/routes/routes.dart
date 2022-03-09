@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-import '../../views/home/home_page.dart';
 import '../../auth/auth_page.dart';
+import '../../views/home/home_page.dart';
 import '../../views/new_diary/new_diary_page.dart';
 import '../../views/single_diary/single_diary_page.dart';
 

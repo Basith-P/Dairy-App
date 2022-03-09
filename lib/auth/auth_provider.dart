@@ -20,7 +20,7 @@ class AuthProvider with ChangeNotifier {
     return 0;
   }
 
-  void signUp(String name, String email, String password) {
+  void signup(String name, String email, String password) {
     _users.add(User(name, email, password));
     notifyListeners();
   }
