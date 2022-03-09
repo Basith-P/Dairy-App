@@ -11,6 +11,8 @@ class User {
 class AuthProvider with ChangeNotifier {
   List<User> _users = [];
 
+  List<User> get users => [..._users];
+
   int login(String email, String password) {
     for (var user in _users) {
       if (user.email == email && user.password == password) {

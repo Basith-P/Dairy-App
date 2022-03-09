@@ -18,6 +18,17 @@ class HomePage extends StatelessWidget {
       appBar: AppBar(
         title: const Text('Your entries'),
         centerTitle: true,
+        actions: [
+          IconButton(
+            icon: const Icon(Icons.logout_rounded),
+            onPressed: () {
+              Navigator.of(context).pushNamedAndRemoveUntil(
+                route.authPage,
+                (Route<dynamic> route) => false,
+              );
+            },
+          ),
+        ],
       ),
       body: diaries.isEmpty
           ? Center(

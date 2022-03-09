@@ -75,7 +75,7 @@ class _AuthPageState extends State<AuthPage> {
                       ScaffoldMessenger.of(context).hideCurrentSnackBar();
                       ScaffoldMessenger.of(context).showSnackBar(
                         const SnackBar(
-                          content: Text("Please check your email and/or password!"),
+                          content: Text("Please check your credentials..!"),
                         ),
                       );
                     }
@@ -89,6 +89,12 @@ class _AuthPageState extends State<AuthPage> {
                 GestureDetector(
                   onTap: () => setState(() {
                     _wantLogin = !_wantLogin;
+                    // final users = context.read<AuthProvider>().users;
+                    // if (users.isEmpty)
+                    //   print('Empty');
+                    // else
+                    //   print(users);
+                    // for (var u in users) print(u.email);
                   }),
                   child: Text(
                     _wantLogin ? 'Create an account' : 'Have an account? Login',
