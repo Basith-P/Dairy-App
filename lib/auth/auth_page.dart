@@ -14,7 +14,7 @@ class AuthPage extends StatefulWidget {
 
 class _AuthPageState extends State<AuthPage> {
   bool _wantLogin = true;
-  late String name;
+  String name = '';
   late String email;
   late String password;
 
@@ -60,9 +60,16 @@ class _AuthPageState extends State<AuthPage> {
                       if (_wantLogin) {
                         context.read<AuthProvider>().login(email, password);
                       } else {
+                        if (name.isEmpty) {
+                          throw 'Please provide a name';
+                        }
                         context.read<AuthProvider>().signup(name, email, password);
                       }
-                      Navigator.pushReplacementNamed(context, route.homePage);
+                      Navigator.pushReplacementNamed(
+                        context,
+                        route.homePage,
+                        arguments: email,
+                      );
                     } catch (e) {
                       print(e);
                       ScaffoldMessenger.of(context).hideCurrentSnackBar();

@@ -21,6 +21,9 @@ class AuthProvider with ChangeNotifier {
   }
 
   void signup(String name, String email, String password) {
+    for (var user in _users) {
+      if (user.email == email) throw 'email already exists';
+    }
     _users.add(User(name, email, password));
     notifyListeners();
   }

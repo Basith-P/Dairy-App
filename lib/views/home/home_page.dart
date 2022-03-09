@@ -7,7 +7,9 @@ import '../../providers/diary_provider.dart';
 import '../../config/routes/routes.dart' as route;
 
 class HomePage extends StatelessWidget {
-  const HomePage({Key? key}) : super(key: key);
+  const HomePage(this.userEmail, {Key? key}) : super(key: key);
+
+  final String userEmail;
 
   @override
   Widget build(BuildContext context) {
@@ -65,7 +67,7 @@ class HomePage extends StatelessWidget {
               separatorBuilder: (context, i) => const SizedBox(height: 8),
             ),
       floatingActionButton: FloatingActionButton(
-        onPressed: () => Navigator.pushNamed(context, route.newDiaryPage),
+        onPressed: () => Navigator.pushNamed(context, route.newDiaryPage, arguments: userEmail),
         child: const Icon(Icons.add_rounded),
         backgroundColor: secondaryColor,
       ),

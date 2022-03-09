@@ -6,6 +6,10 @@ import '../../config/themes/colors.dart';
 import '../../providers/diary_provider.dart';
 
 class NewDiaryPage extends StatelessWidget {
+  final String userEmail;
+
+  const NewDiaryPage(this.userEmail, {Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     String content = "";
@@ -54,7 +58,8 @@ class NewDiaryPage extends StatelessWidget {
               child: const Text('Save'),
               onPressed: () {
                 if (content != "") {
-                  final newDiary = DiaryModel(date: dateTime, content: content);
+                  final newDiary =
+                      DiaryModel(content: content, date: dateTime, userEmail: userEmail);
                   context.read<DiaryProvider>().addDiary(newDiary);
                   Navigator.pop(context);
                   ScaffoldMessenger.of(context).hideCurrentSnackBar();

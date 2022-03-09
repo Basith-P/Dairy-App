@@ -17,9 +17,9 @@ Route<dynamic> controller(RouteSettings settings) {
     case authPage:
       return MaterialPageRoute(builder: (_) => const AuthPage());
     case homePage:
-      return MaterialPageRoute(builder: (_) => const HomePage());
+      return MaterialPageRoute(builder: (_) => HomePage(args.toString()));
     case newDiaryPage:
-      return MaterialPageRoute(builder: (_) => NewDiaryPage());
+      return MaterialPageRoute(builder: (_) => NewDiaryPage(args.toString()));
     case singleDiaryPage:
       return MaterialPageRoute(builder: (_) => SingleDiaryPage(args.toString()));
     default:
