@@ -1,16 +1,33 @@
-# th_diary
+# Diary
 
-A new Flutter project.
+A simple diary app where users can create an account and store their diaries. This data is not stored anywhere in the cloude but in device only.
 
-## Getting Started
+## Team members
 
-This project is a starting point for a Flutter application.
+1. [Basith P](https://github.com/Basith-P)
+2. [Anna Maria Roni]()
 
-A few resources to get you started if this is your first Flutter project:
+## Team Id
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+Flutter / 139
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## Link to product walkthrough
+
+[Walthrough video](https://drive.google.com/file/d/1OQx5zK1TfbBPuR8aFjm2tXrWnAZ9-2Rp/view?usp=sharing)
+
+## How it Works ?
+
+1. Create an account.
+2. Enter diaries.
+
+## Libraries used
+
+- provider - 6.0.2
+- intl - 0.17.0
+
+## How to configure
+
+Just install the app and use it. Simple!
+
+## How to Run
+Again, Just install the app and use it.
